@@ -1,7 +1,12 @@
 let osc, playing, frequ, ampl;
-  
+let sharkImg;
+
+function preload() {
+  sharkImg = loadImage('ezgif-514ecbdf5fa9138b.jpg');
+}
+
   function setup() {
-  let cnv = createCanvas(1000, 1000);
+  createCanvas(1000, 1000);
   cnv.mousePressed(playOscillator);
   osc = new p5.Oscillator('sine');
   
@@ -14,6 +19,7 @@ let osc, playing, frequ, ampl;
 
 function draw() {
   background(137, 207, 240)
+  image(sharkImg, 0, 0, width, height);
   let dryWet = constrain(map(mouseX, 0, width, 0, 1), 0, 1);
   frequ = constrain(map(mouseX, 0, width, 85, 1000), 85, 1000);
   ampl = constrain(map(mouseY, height, 1, 1, 1), 1, 1);
